@@ -1,7 +1,7 @@
 import math
 
 
-def get_player_pos():
+def get_player_pos() -> tuple[float, float, float]:
     while True:
         user_input = input("Enter new coordinates as floats in format "
                            "'x,y,z': ")
@@ -24,7 +24,7 @@ def get_player_pos():
             return (coordinates[0], coordinates[1], coordinates[2])
 
 
-def main():
+def main() -> None:
     print("=== Game Coordinate System ===")
     print("\nGet a first set of coordinates")
     pos1 = get_player_pos()

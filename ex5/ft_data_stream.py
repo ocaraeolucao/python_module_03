@@ -2,7 +2,7 @@ import random
 import typing
 
 
-def gen_event() -> typing.Generator:
+def gen_event() -> typing.Generator[tuple[str, str], None, None]:
     players = ["alice", "bob", "charlie", "dylan"]
     actions = ["run", "eat", "sleep", "grab", "move", "climb", "swim",
                "release", "use"]
@@ -10,14 +10,15 @@ def gen_event() -> typing.Generator:
         yield (random.choice(players), random.choice(actions))
 
 
-def consume_event(event_list: list) -> typing.Generator:
+def consume_event(event_list: list[tuple[str, str]]) -> typing.Generator[tuple[
+        str, str], None, None]:
     while len(event_list) > 0:
-        idx = random.randrange(len(event_list))
-        event = event_list.pop(idx)
+        index = random.randrange(len(event_list))
+        event = event_list.pop(index)
         yield event
 
 
-def main():
+def main() -> None:
     print("=== Game Data Stream Processor ===")
     event_stream = gen_event()
     for i in range(1000):

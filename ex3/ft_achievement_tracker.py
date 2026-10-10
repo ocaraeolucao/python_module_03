@@ -1,12 +1,12 @@
 import random
 
 
-def gen_player_achievements(master_list):
+def gen_player_achievements(master_list: list[str]) -> set[str]:
     num_achievements = random.randint(6, 10)
     return set(random.sample(master_list, num_achievements))
 
 
-def main():
+def main() -> None:
     print("=== Achievement Tracker System ===")
     master_list = [
         'Crafting Genius', 'Strategist', 'World Savior', 'Speed Runner',

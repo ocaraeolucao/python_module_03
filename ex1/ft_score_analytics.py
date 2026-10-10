@@ -1,7 +1,7 @@
 import sys
 
 
-def score_analytics(valid_scores):
+def score_analytics(valid_scores: list[int]) -> None:
     total_players = len(valid_scores)
     total_score = sum(valid_scores)
     average_score = total_score / total_players
@@ -17,7 +17,7 @@ def score_analytics(valid_scores):
     print(f"Score range: {score_range}")
 
 
-def main():
+def main() -> None:
     print("=== Player Score Analytics ===")
     valid_scores = []
     for arg in sys.argv[1:]:
